@@ -5,10 +5,10 @@ require(vegan)
 require(ggplot2)
 library(ggbiplot)
 
-source('~/git/diffExpress/R/functions/functions.r')
-load('~/git/diffExpress/data/filter_genes.RData')
+source('~/git/RNAseqML/R/functions/functions.r')
+load('~/git/RNAseqML/data/filter_genes.RData')
 
-data = create.data(path.brca = '~/git/diffExpress/data/brca.rds', path.luad = '~/git/diffExpress/data/luad.rds')
+data = create.data(path.brca = '~/git/RNAseqML/data/brca.rds', path.luad = '~/git/RNAseqML/data/luad.rds')
 target = data$target
 rnames = colnames(data)
 
@@ -44,5 +44,5 @@ plotMD(res.edgeR.tagwise, main = 'Mean-Difference Plot of Expression Data')
 x = topTags(res.edgeR.tagwise, n = 20)
 top20_edger = rownames(x$table)
 
-save(top20_edger, file = '~/git/diffExpress/results/top20_DE.RData')
+save(top20_edger, file = '~/git/RNAseqML/results/top20_DE.RData')
 

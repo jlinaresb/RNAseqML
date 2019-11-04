@@ -2,11 +2,11 @@
 require(mlr)
 require(tweeDEseq)
 
-source('~/git/diffExpress/R/functions/functions.r')
-load('~/git/diffExpress/data/filter_genes.RData')
+source('~/git/RNAseqML/R/functions/functions.r')
+load('~/git/RNAseqML/data/filter_genes.RData')
 
 print('Load and match datasets ...')
-data = create.data(path.brca = '~/git/diffExpress/data/brca.rds', path.luad = '~/git/diffExpress/data/luad.rds')
+data = create.data(path.brca = '~/git/RNAseqML/data/brca.rds', path.luad = '~/git/RNAseqML/data/luad.rds')
 target = as.character(data$target)
 rnames = colnames(data)
 
@@ -39,8 +39,8 @@ for (i in 1:length(tasks)) {
 }
 
 # Machine Learning (Random Forest and Glmnet)
-source('~/git/diffExpress/R/functions/machineLearning.r')
-execute.ml(list.data = tdata, path = '~/git/diffExpress/results/', filename = 'ML-Benchmark-result.rds')
+source('~/git/RNAseqML/R/functions/machineLearning.r')
+execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
 
 # Analisis de los resultados
 # bmr = readRDS('~/tmp/XoveTIC/XoveTIC_ml_bmr.rds')
