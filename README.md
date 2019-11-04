@@ -29,7 +29,6 @@ require(ggplot2)
 require(ggbiplot)
 require(mlr)
 require(dplyr)
-require(vegan)
 ```
 
 

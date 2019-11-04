@@ -2,11 +2,11 @@
 require(mlr)
 require(tweeDEseq)
 
-source('~/git/RNAseqML/R/functions/functions.r')
-load('~/git/RNAseqML/data/filter_genes.RData')
+source('~/RNAseqML/R/functions/functions.r')
+load('~/RNAseqML/data/filter_genes.RData')
 
 print('Load and match datasets ...')
-data = create.data(path.brca = '~/git/RNAseqML/data/brca.rds', path.luad = '~/git/RNAseqML/data/luad.rds')
+data = create.data(path.brca = '~/RNAseqML/data/brca.rds', path.luad = '~/RNAseqML/data/luad.rds')
 target = as.character(data$target)
 rnames = colnames(data)
 
@@ -39,8 +39,8 @@ for (i in 1:length(tasks)) {
 }
 
 # Machine Learning (Random Forest and Glmnet)
-source('~/git/RNAseqML/R/functions/machineLearning.r')
-execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
+source('~/RNAseqML/R/functions/machineLearning.r')
+execute.ml(list.data = tdata, path = '~/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
 
 # Analisis de los resultados
 # bmr = readRDS('~/tmp/XoveTIC/XoveTIC_ml_bmr.rds')
@@ -51,7 +51,7 @@ execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-B
 #
 # plotBMRSummary(bmr)
 #
-# source('~/git/r-package-tcga-methodology/5.Anal_Results/results_analysis.r')
+# source('~/r-package-tcga-methodology/5.Anal_Results/results_analysis.r')
 # vi = varImp.glmnet(bmr, 1)
 #
 # d = data.frame(Importance = vi)
