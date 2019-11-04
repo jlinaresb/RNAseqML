@@ -34,7 +34,17 @@ require(dplyr)
 
 # How to run
 
+Download the code in your folder home and execute the following comand
+
+### In linux environments
+
 ```{bash }
 Rscript ~/RNAseqML/R/run-classical-analysis.r
 Rscript ~/RNAseqML/R/run-MachineLearning-analysis.r
+```
+
+### In windows environments
+```{bash}
+'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' ~/RNAseqML\R\run-classical-analysis.r
+'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' ~/RNAseqML\R\run-MachineLearning-analysis.r
 ```

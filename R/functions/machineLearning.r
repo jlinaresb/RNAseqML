@@ -62,9 +62,10 @@ execute.ml = function(list.datasets, path = '', filename = ''){
   }
 
   # Benchmarking
-  bmr = benchmark(lrn_glmnet , n , outer , measures =  list(acc , auc, mmce) , show.info = T , models = T)
-
+  bmr = benchmark(learners, n , outer , measures =  list(acc , auc, mmce) , show.info = T , models = T)
+  
   saveRDS(bmr, file = paste0(path, filename, sep = ''))
 
   parallelStop()
+
 }

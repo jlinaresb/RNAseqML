@@ -38,11 +38,18 @@ abline(v=0.05,col="red")
 hist(res.edgeR.tagwise$table$PValue, main = 'Histogram P-values TagwiseDisp')
 abline(v=0.05,col="red")
 
+png(filename = '~/RNAseqML/plots/BCV-plot.png')
 plotBCV(d)
+dev.off()
+
+png(filename = '~/RNAseqML/plots/meanDiffplot.png')
 plotMD(res.edgeR.tagwise, main = 'Mean-Difference Plot of Expression Data')
+dev.off()
 
 x = topTags(res.edgeR.tagwise, n = 20)
 top20_edger = rownames(x$table)
+
+print(top20_edger)
 
 save(top20_edger, file = '~/RNAseqML/results/top20_DE.RData')
 

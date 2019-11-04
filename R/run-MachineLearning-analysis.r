@@ -19,11 +19,13 @@ data_tmm = normalizeCounts(xdata, method = 'TMM')
 xdata = as.data.frame(cbind(data_tmm, target))
 xdata$target = as.character(xdata$target)
 names(xdata) = make.names(names(xdata))
+xdata[] <- lapply(xdata, type.convert, as.is = TRUE)
 
 print('Running Feature Selection. Method: Kruskal Test ...')
 # Feature Selection (Filter univariate)
 task = makeClassifTask(data = xdata, target = 'target')
 
+# nfeat = 20
 nfeat = c(10, 20, 40, 80)
 fs.type = 'kruskal.test'
 tasks = lapply(nfeat, function(x) filterFeatures(task, method = fs.type, abs = x))
@@ -40,7 +42,27 @@ for (i in 1:length(tasks)) {
 
 # Machine Learning (Random Forest and Glmnet)
 source('~/RNAseqML/R/functions/machineLearning.r')
-execute.ml(list.data = tdata, path = '~/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
+execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
+
+
+bmr = readRDS('~/RNAseqML/results/ML-Benchmark-result.rds')
+
+# Plot the results
+png(filename = '~/RNAseqML/plots/BMRsummary.png')
+plotBMRSummary(bmr)
+dev.off()
+
+png(filename = '~/RNAseqML/plots/BMRboxplot.png')
+plotBMRBoxplots(bmr, style = 'violin')
+dev.off()
+
+png(filename = '~/RNAseqML/plots/varImp-glmnet.png')
+varImp.glmnet(bmr, n.model = 2)
+dev.off()
+
+png(filename = '~/RNAseqML/plots/varImp-rf.png')
+varImp.rf(bmr, n.model = 2)
+dev.off()
 
 # Analisis de los resultados
 # bmr = readRDS('~/tmp/XoveTIC/XoveTIC_ml_bmr.rds')

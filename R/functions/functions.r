@@ -141,7 +141,7 @@ varImp.glmnet = function(bmr, n.model){
   }
   
   names(sum.betas) = glmnet[[n.model]]$features
-  barplot(abs(sum.betas), main = 'Glmnet Variable Importance', xaxt = "n", ylim = c(0,50), col = topo.colors(length(sum.betas)))
+  barplot(abs(sum.betas), main = 'Glmnet Variable Importance', xaxt = "n", ylim = c(0,10), col = topo.colors(length(sum.betas)))
   
   return(sum.betas)
 }
