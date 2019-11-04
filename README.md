@@ -7,8 +7,19 @@ Transcriptome analysis, as a tool for the characterization and understanding of 
 
 # Required packages
 
+```{r}
+install.packages(c("ggplot2", "mlr", "dplyr", "vegan"))
 
-# How to run
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install(c("tweeDEseq", edgeR))
+
+
+library(devtools)
+install_github("vqv/ggbiplot")
+```
+
 
 ```{r }
 require(tweeDEseq)
@@ -21,15 +32,10 @@ require(dplyr)
 require(vegan)
 ```
 
-```{r}
-install.packages(c("ggplot2", "mlr", "dplyr", "vegan"))
 
-if (!requireNamespace("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+# How to run
 
-BiocManager::install(c("tweeDEseq", edgeR))
-
-
-library(devtools)
-install_github("vqv/ggbiplot")
+```{bash }
+Rscript ~/RNAseqML/R/run-classical-analysis.r
+Rscript ~/RNAseqML/R/run-MachineLearning-analysis.r
 ```
