@@ -1,6 +1,6 @@
 # Machine Learning with mlr package
 
-execute.ml = function(list.datasets, path = '', filename = ''){
+execute.ml = function(list.datasets, path = '', filename = '', win = F){
 
   require(mlr)
   print('Making task')
@@ -51,15 +51,14 @@ execute.ml = function(list.datasets, path = '', filename = ''){
   print('Training the model')
 
 
-  if (!('parallelMap' %in% installed.packages()[,"Package"])){
-    message('Installing packages...')
-    install.packages('parallelMap')
-    library(parallelMap)
-    parallelStartMulticore(2L , level = 'mlr.tuneParams')
-  } else {
+  if (win == TRUE){
+    require(parallelMap)
+    parallelStartSocket(2, level = 'mlr.tuneParams')
+  } else{
     library(parallelMap)
     parallelStartMulticore(2L , level = 'mlr.tuneParams')
   }
+
 
   # Benchmarking
   bmr = benchmark(learners, n , outer , measures =  list(acc , auc, mmce) , show.info = T , models = T)

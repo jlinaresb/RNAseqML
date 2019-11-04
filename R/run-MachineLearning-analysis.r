@@ -42,7 +42,7 @@ for (i in 1:length(tasks)) {
 
 # Machine Learning (Random Forest and Glmnet)
 source('~/RNAseqML/R/functions/machineLearning.r')
-execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-Benchmark-result.rds')
+execute.ml(list.data = tdata, path = '~/git/RNAseqML/results/', filename = 'ML-Benchmark-result.rds', win = F) # si se corre en windows hay que poner win = T para la paralelización
 
 
 bmr = readRDS('~/RNAseqML/results/ML-Benchmark-result.rds')

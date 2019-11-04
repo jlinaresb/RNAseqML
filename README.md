@@ -8,7 +8,7 @@ Transcriptome analysis, as a tool for the characterization and understanding of 
 # Required packages
 
 ```{r}
-install.packages(c("ggplot2", "mlr", "dplyr", "vegan"))
+install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"))
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -29,6 +29,7 @@ require(ggplot2)
 require(ggbiplot)
 require(mlr)
 require(dplyr)
+require(parallelMap)
 ```
 
 
