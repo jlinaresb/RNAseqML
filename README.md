@@ -25,7 +25,7 @@ There are two RNAseq analysis in this repo, a classical and a machine-learning b
 The packages we've used:
 
 ```{r}
-install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"),dependencies=TRUE)
+install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"))
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -48,14 +48,23 @@ require(mlr)
 require(dplyr)
 require(parallelMap)
 ```
+#### Some system dependencies
 
+Please, be sure that you have the following packages in Ubuntu:
+
+```sh
+sudo apt-get update
+sudo apt-get install libxml2-dev
+sudo apt-get install r-cran-xml
+sudo apt-get install libssl-dev libcurl4-openssl-dev
+```
 
 ### How to run
 
 Clone this repository:
 
 ```{bash}
-git clone git@github.com:jlinaresb/RNAseqML.git
+git clone https://github.com/jlinaresb/RNAseqML.git
 ```
 
 navigate to the RNAseqML/R folder and execute the following command (choose your OS):
