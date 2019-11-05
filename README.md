@@ -52,6 +52,7 @@ Please, be sure that you have the following packages in Ubuntu:
 sudo apt-get update
 sudo apt-get install libxml2-dev
 sudo apt-get install r-cran-xml
+sudo apt-get install libssl-dev libcurl4-openssl-dev
 ```
 
 ### How to run
