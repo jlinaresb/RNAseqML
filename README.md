@@ -21,12 +21,12 @@ There are two RNAseq analysis in this repo, a classical and a machine-learning b
 The packages we've used:
 
 ```{r}
-install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"))
+install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"),dependencies=TRUE)
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
-BiocManager::install(c("tweeDEseq", edgeR))
+BiocManager::install(c("tweeDEseq", "edgeR"))
 
 
 library(devtools)
