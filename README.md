@@ -21,7 +21,7 @@ There are two RNAseq analysis in this repo, a classical and a machine-learning b
 The packages we've used:
 
 ```{r}
-install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"),dependencies=TRUE)
+install.packages(c("ggplot2", "mlr", "dplyr", "vegan", "parallelMap"))
 
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
