@@ -1,6 +1,6 @@
 # Differential Gene Expression Analysis of RNA-seq Data Using Machine Learning for Cancer Research
 
-This repository includes code for the following chapter book. Please, cite this chapter as:
+This repository includes code based on the following chapter book:
 
 *Liñares Blanco J., Gestal M., Dorado J., Fernandez-Lozano C. (2019) Differential Gene Expression Analysis of RNA-seq Data Using Machine Learning for Cancer Research. In: Tsihrintzis G., Virvou M., Sakkopoulos E., Jain L. (eds) Machine Learning Paradigms. Learning and Analytics in Intelligent Systems, vol 1. Springer, Cham*
 
