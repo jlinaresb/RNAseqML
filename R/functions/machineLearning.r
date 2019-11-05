@@ -1,6 +1,6 @@
 # Machine Learning with mlr package
 
-execute.ml = function(list.datasets, path = '', filename = '', win = F){
+execute.ml = function(list.datasets, win = F){
 
   require(mlr)
   print('Making task')
@@ -62,9 +62,7 @@ execute.ml = function(list.datasets, path = '', filename = '', win = F){
 
   # Benchmarking
   bmr = benchmark(learners, n , outer , measures =  list(acc , auc, mmce) , show.info = T , models = T)
-  
-  saveRDS(bmr, file = paste0(path, filename, sep = ''))
-
   parallelStop()
+  return(bmr)
 
 }

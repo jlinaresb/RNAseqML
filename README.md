@@ -47,20 +47,26 @@ require(parallelMap)
 
 ### How to run
 
-Download the code into your home folder and execute the following command:
+Clone this repository:
+
+```{bash}
+git clone git@github.com:jlinaresb/RNAseqML.git
+```
+
+navigate to the RNAseqML/R folder and execute the following command (choose your OS):
 
 #### In linux environments
 
 ```{bash}
-Rscript ~/RNAseqML/R/run-classical-analysis.r
-Rscript ~/RNAseqML/R/run-MachineLearning-analysis.r
+Rscript run-classical-analysis.r
+Rscript run-MachineLearning-analysis.r
 ```
 
 #### In windows environments
 
 ```{bash}
-'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' ~/RNAseqML\R\run-classical-analysis.r
-'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' ~/RNAseqML\R\run-MachineLearning-analysis.r
+'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' run-classical-analysis.r
+'C:\Program Files\R\R-3.5.2\bin\Rscript.exe' run-MachineLearning-analysis.r
 ```
 
 ## Citation:

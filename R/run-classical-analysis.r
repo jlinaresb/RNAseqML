@@ -5,10 +5,10 @@ require(vegan)
 require(ggplot2)
 library(ggbiplot)
 
-source('~/RNAseqML/R/functions/functions.r')
-load('~/RNAseqML/data/filter_genes.RData')
+source('functions/functions.r')
+load('../data/filter_genes.RData')
 
-data = create.data(path.brca = '~/RNAseqML/data/brca.rds', path.luad = '~/RNAseqML/data/luad.rds')
+data = create.data(path.brca = '../data/brca.rds', path.luad = '../data/luad.rds')
 target = data$target
 rnames = colnames(data)
 
@@ -32,17 +32,19 @@ d<- estimateTagwiseDisp(d)
 res.edgeR.common<- exactTest(d, pair=c("brca", "luad"), dispersion="common")
 res.edgeR.tagwise<- exactTest(d, pair=c("brca", "luad"), dispersion="tagwise")
 
+pdf(file = '../results/dispersion.pdf')
 par(mfrow = c(2,1))
 hist(res.edgeR.common$table$PValue, main = 'Histogram P-values CommonDisp')
 abline(v=0.05,col="red")
 hist(res.edgeR.tagwise$table$PValue, main = 'Histogram P-values TagwiseDisp')
 abline(v=0.05,col="red")
+dev.off()
 
-png(filename = '~/RNAseqML/plots/BCV-plot.png')
+png(filename = '../plots/BCV-plot.png')
 plotBCV(d)
 dev.off()
 
-png(filename = '~/RNAseqML/plots/meanDiffplot.png')
+png(filename = '../plots/meanDiffplot.png')
 plotMD(res.edgeR.tagwise, main = 'Mean-Difference Plot of Expression Data')
 dev.off()
 
@@ -51,5 +53,5 @@ top20_edger = rownames(x$table)
 
 print(top20_edger)
 
-save(top20_edger, file = '~/RNAseqML/results/top20_DE.RData')
+save(top20_edger, file = '../results/top20_DE.RData')
 
